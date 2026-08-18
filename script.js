@@ -22,12 +22,8 @@ window.addEventListener("load", () => {
 // MOBILE MENU
 // ========================================
 
-const menuButton =
-  document.getElementById("menuButton");
-
-const mobileMenu =
-  document.getElementById("mobileMenu");
-
+const menuButton = document.getElementById("menuButton");
+const mobileMenu = document.getElementById("mobileMenu");
 
 if (menuButton && mobileMenu) {
 
@@ -52,7 +48,6 @@ if (menuButton && mobileMenu) {
   const mobileMenuLinks =
     mobileMenu.querySelectorAll("a");
 
-
   mobileMenuLinks.forEach((link) => {
 
     link.addEventListener("click", () => {
@@ -74,195 +69,471 @@ if (menuButton && mobileMenu) {
 
 
 // ========================================
-// DESKTOP INFINITE GALLERY
-// MOBILE = NORMAL SWIPE
+// INFINITE DESKTOP GALLERY
 // ========================================
 
 const galleryTrack =
   document.getElementById("galleryTrack");
 
-const galleryPrevious =
-  document.getElementById("galleryPrevious");
+const galleryPrev =
+  document.getElementById("galleryPrev");
 
 const galleryNext =
   document.getElementById("galleryNext");
 
 
-if (
-  galleryTrack &&
-  galleryPrevious &&
-  galleryNext
-) {
+if (galleryTrack) {
 
-  let moving = false;
+  let originalItems = [];
+
+  let itemStep = 0;
+
+  let setWidth = 0;
+
+  let desktopMode = false;
+
+  let resizeTimer;
 
 
   // ========================================
-  // GET WIDTH OF ONE PROJECT
+  // FIND ORIGINAL IMAGES
   // ========================================
 
-  function getStep() {
+  function getOriginalItems() {
+
+    originalItems = Array.from(
+      galleryTrack.querySelectorAll(
+        ".gallery-item:not(.gallery-clone)"
+      )
+    );
+
+  }
+
+
+  // ========================================
+  // REMOVE OLD CLONES
+  // ========================================
+
+  function removeClones() {
+
+    const clones =
+      galleryTrack.querySelectorAll(
+        ".gallery-clone"
+      );
+
+    clones.forEach((clone) => {
+      clone.remove();
+    });
+
+  }
+
+
+  // ========================================
+  // MEASURE ONE GALLERY SET
+  // ========================================
+
+  function measureGallery() {
 
     const firstItem =
       galleryTrack.querySelector(".gallery-item");
 
     if (!firstItem) {
-      return 0;
+      return;
     }
 
-    const styles =
+
+    const trackStyles =
       window.getComputedStyle(galleryTrack);
 
-    const gap =
-      parseFloat(styles.columnGap) || 18;
 
-    return (
-      firstItem.getBoundingClientRect().width +
-      gap
-    );
+    const gap =
+      parseFloat(trackStyles.columnGap) ||
+      parseFloat(trackStyles.gap) ||
+      0;
+
+
+    const itemWidth =
+      firstItem.getBoundingClientRect().width;
+
+
+    itemStep =
+      itemWidth + gap;
+
+
+    setWidth =
+      itemStep * originalItems.length;
 
   }
 
 
   // ========================================
-  // DESKTOP NEXT
+  // CREATE DESKTOP INFINITE LOOP
   // ========================================
 
-  function moveNext() {
+  function createDesktopGallery() {
 
-    // MOBILE DOES NOT USE THIS
-    if (window.innerWidth <= 768) {
+    desktopMode = false;
+
+
+    // Remove any clones that already exist
+
+    removeClones();
+
+
+    // Get the five real gallery images
+
+    getOriginalItems();
+
+
+    if (originalItems.length === 0) {
       return;
     }
 
-    if (moving) {
-      return;
-    }
 
-    moving = true;
+    /*
+      We are going to create:
 
-    const step = getStep();
+      COPY 1
+      ORIGINALS
+      COPY 2
 
-    galleryTrack.style.scrollBehavior = "smooth";
+      So visually the gallery becomes:
 
-    galleryTrack.scrollBy({
-      left: step,
-      behavior: "smooth"
+      1 2 3 4 5 | 1 2 3 4 5 | 1 2 3 4 5
+
+      We start inside the middle set.
+    */
+
+
+    const beforeFragment =
+      document.createDocumentFragment();
+
+    const afterFragment =
+      document.createDocumentFragment();
+
+
+    // ========================================
+    // CREATE FIRST COPY
+    // ========================================
+
+    originalItems.forEach((item) => {
+
+      const clone =
+        item.cloneNode(true);
+
+      clone.classList.add(
+        "gallery-clone"
+      );
+
+      clone.setAttribute(
+        "aria-hidden",
+        "true"
+      );
+
+      beforeFragment.appendChild(clone);
+
     });
 
 
-    setTimeout(() => {
+    // ========================================
+    // CREATE LAST COPY
+    // ========================================
 
-      const firstItem =
-        galleryTrack.firstElementChild;
+    originalItems.forEach((item) => {
 
-      if (firstItem) {
+      const clone =
+        item.cloneNode(true);
 
-        // Move first project to the end
+      clone.classList.add(
+        "gallery-clone"
+      );
 
-        galleryTrack.appendChild(firstItem);
+      clone.setAttribute(
+        "aria-hidden",
+        "true"
+      );
 
-        // Correct position invisibly
+      afterFragment.appendChild(clone);
 
-        galleryTrack.style.scrollBehavior = "auto";
+    });
 
-        galleryTrack.scrollLeft -= step;
 
-      }
+    // Put first copy before originals
 
-      moving = false;
+    galleryTrack.insertBefore(
+      beforeFragment,
+      galleryTrack.firstChild
+    );
 
-    }, 450);
+
+    // Put last copy after originals
+
+    galleryTrack.appendChild(
+      afterFragment
+    );
+
+
+    // Measure everything
+
+    measureGallery();
+
+
+    // ========================================
+    // START IN MIDDLE SET
+    // ========================================
+
+    galleryTrack.style.scrollBehavior = "auto";
+
+    galleryTrack.scrollLeft = setWidth;
+
+
+    // Force browser to apply position
+
+    void galleryTrack.offsetWidth;
+
+
+    galleryTrack.style.scrollBehavior = "";
+
+    desktopMode = true;
 
   }
 
 
   // ========================================
-  // DESKTOP PREVIOUS
+  // MOBILE VERSION
   // ========================================
 
-  function movePrevious() {
+  function createMobileGallery() {
 
-    // MOBILE DOES NOT USE THIS
-    if (window.innerWidth <= 768) {
-      return;
-    }
+    desktopMode = false;
 
-    if (moving) {
-      return;
-    }
 
-    moving = true;
+    // Mobile should NOT have clones
 
-    const step = getStep();
-
-    const lastItem =
-      galleryTrack.lastElementChild;
-
-    if (!lastItem) {
-
-      moving = false;
-
-      return;
-
-    }
+    removeClones();
 
 
     galleryTrack.style.scrollBehavior = "auto";
 
-
-    // Move last project to the beginning
-
-    galleryTrack.insertBefore(
-      lastItem,
-      galleryTrack.firstElementChild
-    );
+    galleryTrack.scrollLeft = 0;
 
 
-    // Compensate for inserted project
-
-    galleryTrack.scrollLeft += step;
+    void galleryTrack.offsetWidth;
 
 
-    requestAnimationFrame(() => {
-
-      requestAnimationFrame(() => {
-
-        galleryTrack.style.scrollBehavior =
-          "smooth";
-
-        galleryTrack.scrollBy({
-          left: -step,
-          behavior: "smooth"
-        });
-
-      });
-
-    });
-
-
-    setTimeout(() => {
-
-      moving = false;
-
-    }, 450);
+    galleryTrack.style.scrollBehavior = "";
 
   }
 
 
   // ========================================
-  // DESKTOP ARROWS
+  // KEEP DESKTOP LOOP CONTINUOUS
   // ========================================
 
-  galleryNext.addEventListener(
-    "click",
-    moveNext
+  function maintainInfiniteLoop() {
+
+    if (!desktopMode) {
+      return;
+    }
+
+    if (!setWidth) {
+      return;
+    }
+
+
+    const position =
+      galleryTrack.scrollLeft;
+
+
+    /*
+      STRUCTURE:
+
+      COPY:
+      0 → setWidth
+
+      ORIGINAL:
+      setWidth → setWidth * 2
+
+      COPY:
+      setWidth * 2 → setWidth * 3
+
+
+      When we move into the right-hand copy,
+      silently move one full set backwards.
+
+      The visible image is IDENTICAL.
+
+      Therefore the user never sees the reset.
+    */
+
+
+    if (position >= setWidth * 2) {
+
+      galleryTrack.style.scrollBehavior = "auto";
+
+
+      galleryTrack.scrollLeft =
+        position - setWidth;
+
+
+      void galleryTrack.offsetWidth;
+
+
+      galleryTrack.style.scrollBehavior = "";
+
+    }
+
+
+    /*
+      Same thing going backwards.
+
+      If we move into the left-hand copy,
+      silently move to the identical position
+      one complete set further right.
+    */
+
+    else if (position < setWidth) {
+
+      galleryTrack.style.scrollBehavior = "auto";
+
+
+      galleryTrack.scrollLeft =
+        position + setWidth;
+
+
+      void galleryTrack.offsetWidth;
+
+
+      galleryTrack.style.scrollBehavior = "";
+
+    }
+
+  }
+
+
+  // ========================================
+  // WATCH DESKTOP SCROLL POSITION
+  // ========================================
+
+  galleryTrack.addEventListener(
+    "scroll",
+    maintainInfiniteLoop,
+    { passive: true }
   );
 
 
-  galleryPrevious.addEventListener(
-    "click",
-    movePrevious
+  // ========================================
+  // RIGHT ARROW
+  // ========================================
+
+  if (galleryNext) {
+
+    galleryNext.addEventListener(
+      "click",
+      () => {
+
+        if (!desktopMode) {
+          return;
+        }
+
+
+        galleryTrack.scrollBy({
+
+          left: itemStep,
+
+          behavior: "smooth"
+
+        });
+
+      }
+    );
+
+  }
+
+
+  // ========================================
+  // LEFT ARROW
+  // ========================================
+
+  if (galleryPrev) {
+
+    galleryPrev.addEventListener(
+      "click",
+      () => {
+
+        if (!desktopMode) {
+          return;
+        }
+
+
+        galleryTrack.scrollBy({
+
+          left: -itemStep,
+
+          behavior: "smooth"
+
+        });
+
+      }
+    );
+
+  }
+
+
+  // ========================================
+  // DESKTOP OR MOBILE?
+  // ========================================
+
+  function setupGallery() {
+
+    if (window.innerWidth > 768) {
+
+      createDesktopGallery();
+
+    }
+
+    else {
+
+      createMobileGallery();
+
+    }
+
+  }
+
+
+  // ========================================
+  // START GALLERY
+  // ========================================
+
+  window.addEventListener(
+    "load",
+    () => {
+
+      setupGallery();
+
+    }
+  );
+
+
+  // ========================================
+  // HANDLE WINDOW RESIZING
+  // ========================================
+
+  window.addEventListener(
+    "resize",
+    () => {
+
+      clearTimeout(resizeTimer);
+
+
+      resizeTimer =
+        setTimeout(() => {
+
+          setupGallery();
+
+        }, 250);
+
+    }
   );
 
 }

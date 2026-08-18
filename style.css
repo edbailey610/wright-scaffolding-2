@@ -69,13 +69,15 @@ select {
   flex-direction: column;
   align-items: flex-start;
   justify-content: center;
-  gap: 2px;
+  gap: 3px;
 }
 
 .logo {
-  font-size: 20px;
+  font-size: clamp(24px, 2.15vw, 34px);
   font-weight: 900;
-  line-height: 1.1;
+  line-height: 0.95;
+  letter-spacing: -1.2px;
+  white-space: nowrap;
 }
 
 .logo span {
@@ -145,7 +147,7 @@ select {
   padding: 11px 0;
   font-size: 14px;
   font-weight: 600;
-  border-bottom: 1px solid rgba(255,255,255,0.12);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
 }
 
 .mobile-menu a:last-child {
@@ -199,42 +201,51 @@ select {
    ======================================== */
 
 .hero {
-  min-height: 670px;
   display: grid;
   grid-template-columns: 1fr 1fr;
+  align-items: stretch;
+  background: var(--light);
 }
 
 .hero-copy {
-  padding: 90px 8% 75px 12%;
+  padding: 34px 7% 28px 12%;
+
   display: flex;
   flex-direction: column;
   justify-content: center;
+
+  min-width: 0;
 }
 
 .hero h1 {
-  font-size: clamp(52px, 6vw, 88px);
-  line-height: 0.94;
+  font-size: clamp(50px, 5.4vw, 82px);
+  line-height: 0.92;
   letter-spacing: -4px;
-  max-width: 760px;
+  max-width: 720px;
 }
 
 .hero-description {
-  max-width: 540px;
-  margin-top: 30px;
-  font-size: 17px;
+  max-width: 650px;
+  margin-top: 22px;
+
+  font-size: 16px;
+  line-height: 1.5;
+
   color: #555;
 }
 
 .hero-buttons {
   display: flex;
   align-items: center;
-  gap: 28px;
-  margin-top: 32px;
+
+  gap: 42px;
+
+  margin-top: 22px;
 }
 
 .button {
   display: inline-block;
-  padding: 16px 22px;
+  padding: 15px 21px;
   font-weight: 700;
 }
 
@@ -257,42 +268,72 @@ select {
 .hero-tags {
   display: flex;
   flex-wrap: wrap;
-  gap: 12px;
-  margin-top: 42px;
+
+  gap: 10px;
+
+  margin-top: 20px;
 }
 
 .hero-tags span {
   border: 1px solid var(--border);
+
   padding: 7px 11px;
+
   font-size: 10px;
   font-weight: 800;
+
   text-transform: uppercase;
   letter-spacing: 0.5px;
 }
 
+
+/* ========================================
+   HERO PHOTO
+   ======================================== */
+
 .hero-image {
   position: relative;
-  min-height: 670px;
+
+  width: 100%;
+
   overflow: hidden;
+
+  background: transparent;
+
+  display: flex;
+  align-items: stretch;
 }
 
 .hero-image img {
   width: 100%;
   height: 100%;
+
+  display: block;
+
   object-fit: cover;
-  position: absolute;
-  inset: 0;
+  object-position: center;
 }
+
+
+/* ABERGAVENNY CARD */
 
 .image-card {
   position: absolute;
+
   left: 0;
   bottom: 0;
-  width: 250px;
-  padding: 22px;
+
+  width: 44%;
+  min-width: 250px;
+
+  padding: 22px 36px;
+
   background: var(--orange);
+
   display: grid;
   gap: 5px;
+
+  z-index: 2;
 }
 
 .image-card span {
@@ -313,13 +354,19 @@ select {
 .service-strip {
   background: var(--dark);
   color: white;
+
   min-height: 70px;
+
   display: flex;
   align-items: center;
   justify-content: space-around;
+
   gap: 35px;
+
   padding: 18px 5%;
+
   text-transform: uppercase;
+
   font-size: 10px;
   font-weight: 700;
   letter-spacing: 1px;
@@ -337,7 +384,10 @@ select {
 
 .services .section-heading {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(320px, 0.75fr);
+
+  grid-template-columns:
+    minmax(0, 1fr)
+    minmax(320px, 0.75fr);
 
   grid-template-areas:
     "main description"
@@ -345,20 +395,27 @@ select {
 
   column-gap: 80px;
   row-gap: 18px;
+
   align-items: start;
+
   margin-bottom: 42px;
 }
 
 .services .section-heading .eyebrow {
   grid-area: main;
+
   margin: 0;
 
   font-size: clamp(42px, 5vw, 68px);
+
   line-height: 0.95;
+
   font-weight: 900;
+
   letter-spacing: -2.5px;
 
   text-transform: uppercase;
+
   color: var(--dark);
 }
 
@@ -366,10 +423,13 @@ select {
   grid-area: tagline;
 
   font-size: clamp(24px, 2.3vw, 34px);
+
   line-height: 1.05;
+
   letter-spacing: -1px;
 
   max-width: 600px;
+
   margin: 0;
 }
 
@@ -377,35 +437,44 @@ select {
   grid-area: description;
 
   max-width: 420px;
+
   margin: 2px 0 0;
 
   font-size: 15px;
+
   line-height: 1.6;
 
   color: #606060;
 }
 
 
-/* SERVICE CARDS */
+/* ========================================
+   SERVICE CARDS
+   ======================================== */
 
 .service-grid {
   display: grid;
+
   grid-template-columns: repeat(3, 1fr);
 
   border-top: 1px solid var(--border);
+
   border-left: 1px solid var(--border);
 }
 
 .service-card {
   min-height: 245px;
+
   padding: 27px 28px;
 
   border-right: 1px solid var(--border);
+
   border-bottom: 1px solid var(--border);
 
   position: relative;
 
   display: flex;
+
   flex-direction: column;
 }
 
@@ -419,7 +488,9 @@ select {
 
 .service-card h3 {
   font-size: 23px;
+
   line-height: 1.08;
+
   letter-spacing: -0.6px;
 
   margin-bottom: 13px;
@@ -431,6 +502,7 @@ select {
   color: var(--grey);
 
   font-size: 14px;
+
   line-height: 1.55;
 
   max-width: 320px;
@@ -444,28 +516,34 @@ select {
   list-style: none;
 
   margin-top: auto;
+
   padding-top: 22px;
 }
 
 .service-card li {
   font-size: 9px;
+
   line-height: 1.3;
 
   text-transform: uppercase;
 
   font-weight: 800;
+
   letter-spacing: 0.65px;
 
   padding: 6px 0;
 
-  border-top: 1px solid rgba(0,0,0,0.15);
+  border-top: 1px solid rgba(0, 0, 0, 0.15);
 }
 
 
-/* CONTACT CARD */
+/* ========================================
+   CONTACT CARD
+   ======================================== */
 
 .contact-card {
   background: var(--dark);
+
   color: white;
 }
 
@@ -479,7 +557,9 @@ select {
 
 .contact-card .eyebrow {
   color: var(--orange);
+
   font-size: 9px;
+
   margin-bottom: 13px;
 }
 
@@ -497,6 +577,7 @@ select {
   padding-top: 24px;
 
   font-size: 13px;
+
   font-weight: 700;
 
   border-bottom: 1px solid white;
@@ -509,6 +590,7 @@ select {
 
 .approach {
   background: var(--dark);
+
   color: white;
 }
 
@@ -518,15 +600,16 @@ select {
 
 .values {
   display: grid;
+
   grid-template-columns: repeat(3, 1fr);
 
-  border-top: 1px solid rgba(255,255,255,0.2);
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 .value {
   padding: 38px 45px 30px 0;
 
-  border-right: 1px solid rgba(255,255,255,0.2);
+  border-right: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 .value:not(:first-child) {
@@ -535,11 +618,13 @@ select {
 
 .value h3 {
   font-size: 32px;
+
   margin-bottom: 12px;
 }
 
 .value p {
   color: #aaa;
+
   max-width: 330px;
 }
 
@@ -558,16 +643,18 @@ select {
 
 .process-grid {
   display: grid;
+
   grid-template-columns: repeat(4, 1fr);
 
-  border-top: 1px solid rgba(0,0,0,0.25);
+  border-top: 1px solid rgba(0, 0, 0, 0.25);
 }
 
 .process-step {
   padding: 38px 32px;
+
   min-height: 220px;
 
-  border-right: 1px solid rgba(0,0,0,0.25);
+  border-right: 1px solid rgba(0, 0, 0, 0.25);
 }
 
 .process-step:first-child {
@@ -576,6 +663,7 @@ select {
 
 .process-step h3 {
   font-size: 24px;
+
   line-height: 1.1;
 
   margin-bottom: 15px;
@@ -604,7 +692,9 @@ select {
 
 .work-title-row {
   display: flex;
+
   align-items: flex-end;
+
   justify-content: space-between;
 
   gap: 60px;
@@ -624,6 +714,7 @@ select {
   color: var(--grey);
 
   font-size: 15px;
+
   line-height: 1.6;
 }
 
@@ -642,6 +733,7 @@ select {
   gap: 18px;
 
   overflow-x: hidden;
+
   overflow-y: hidden;
 
   scroll-behavior: smooth;
@@ -669,6 +761,7 @@ select {
 
 .gallery-image img {
   width: 100%;
+
   height: 100%;
 
   object-fit: cover;
@@ -680,9 +773,6 @@ select {
   transform: scale(1.025);
 }
 
-
-/* CAPTION */
-
 .gallery-caption {
   padding: 15px 2px 0;
 }
@@ -693,6 +783,7 @@ select {
   margin-bottom: 6px;
 
   font-size: 9px;
+
   font-weight: 800;
 
   letter-spacing: 1.4px;
@@ -721,31 +812,35 @@ select {
   transform: translateY(-50%);
 
   width: 56px;
+
   height: 56px;
 
   display: flex;
+
   align-items: center;
+
   justify-content: center;
 
-  border: 1px solid rgba(255,255,255,0.15);
+  border: 1px solid rgba(255, 255, 255, 0.15);
 
   border-radius: 50%;
 
-  background: rgba(15,15,15,0.88);
+  background: rgba(15, 15, 15, 0.88);
 
   color: white;
 
   font-size: 22px;
+
   line-height: 1;
 
   cursor: pointer;
 
   z-index: 20;
 
-  box-shadow:
-    0 10px 30px rgba(0,0,0,0.22);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.22);
 
   backdrop-filter: blur(10px);
+
   -webkit-backdrop-filter: blur(10px);
 
   transition:
@@ -767,9 +862,7 @@ select {
 
   color: var(--dark);
 
-  transform:
-    translateY(-50%)
-    scale(1.08);
+  transform: translateY(-50%) scale(1.08);
 }
 
 .gallery-mobile-hint {
@@ -834,7 +927,7 @@ select {
 
   padding: 17px 0;
 
-  border-bottom: 1px solid rgba(0,0,0,0.2);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
 }
 
 
@@ -921,8 +1014,7 @@ select {
 }
 
 .quote-form input,
-.quote-form textarea,
-.quote-form select {
+.quote-form textarea {
   width: 100%;
 
   border: 0;
@@ -939,13 +1031,8 @@ select {
 }
 
 .quote-form input:focus,
-.quote-form textarea:focus,
-.quote-form select:focus {
+.quote-form textarea:focus {
   border-bottom-color: var(--orange);
-}
-
-.quote-form select option {
-  color: black;
 }
 
 .quote-form textarea {
@@ -1052,6 +1139,7 @@ footer > a {
 
 .social-button {
   width: 46px;
+
   height: 46px;
 
   display: flex;
@@ -1067,8 +1155,8 @@ footer > a {
   border-radius: 50%;
 
   box-shadow:
-    0 8px 25px rgba(0,0,0,0.20),
-    0 2px 5px rgba(0,0,0,0.12);
+    0 8px 25px rgba(0, 0, 0, 0.20),
+    0 2px 5px rgba(0, 0, 0, 0.12);
 }
 
 .social-button:hover {
@@ -1081,6 +1169,7 @@ footer > a {
 
 .instagram-icon {
   width: 20px;
+
   height: 20px;
 
   fill: none;
@@ -1098,6 +1187,7 @@ footer > a {
 
 .facebook-icon {
   width: 21px;
+
   height: 21px;
 
   fill: currentColor;
@@ -1116,6 +1206,39 @@ footer > a {
    ======================================== */
 
 @media (max-width: 1050px) and (min-width: 769px) {
+
+  .hero-copy {
+    padding: 28px 7%;
+  }
+
+  .hero h1 {
+    font-size: clamp(42px, 5vw, 60px);
+  }
+
+  .hero-description {
+    margin-top: 16px;
+
+    font-size: 14px;
+
+    line-height: 1.45;
+  }
+
+  .hero-buttons {
+    margin-top: 18px;
+
+    gap: 24px;
+  }
+
+  .hero-tags {
+    margin-top: 18px;
+  }
+
+  .hero-tags span {
+    font-size: 8px;
+
+    padding: 6px 8px;
+  }
+
 
   .section-heading {
     grid-template-columns: 1fr 2fr;
@@ -1170,7 +1293,11 @@ footer > a {
   }
 
   .logo {
-    font-size: 15px;
+    font-size: 20px;
+
+    line-height: 0.95;
+
+    letter-spacing: -0.7px;
   }
 
   .logo-location {
@@ -1178,7 +1305,7 @@ footer > a {
 
     letter-spacing: 0.9px;
 
-    margin-top: 2px;
+    margin-top: 3px;
   }
 
   .desktop-nav {
@@ -1265,8 +1392,8 @@ footer > a {
     z-index: 9999;
 
     box-shadow:
-      0 8px 25px rgba(0,0,0,0.22),
-      0 2px 5px rgba(0,0,0,0.15);
+      0 8px 25px rgba(0, 0, 0, 0.22),
+      0 2px 5px rgba(0, 0, 0, 0.15);
   }
 
   .mobile-call-button::before {
@@ -1284,18 +1411,20 @@ footer > a {
   }
 
 
-  /* HERO */
+  /* ========================================
+     MOBILE HERO
+     ======================================== */
 
   .hero {
     display: flex;
 
     flex-direction: column;
-
-    min-height: auto;
   }
 
   .hero-copy {
     width: 100%;
+
+    height: auto;
 
     padding: 52px 20px 45px;
   }
@@ -1336,24 +1465,70 @@ footer > a {
     align-self: flex-start;
   }
 
+
+  /* HERO TAGS */
+
   .hero-tags {
+    display: grid;
+
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+
+    width: 100%;
+
     margin-top: 30px;
 
     gap: 8px;
   }
 
   .hero-tags span {
+    width: 100%;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    padding: 9px 2px;
+
     font-size: 9px;
 
-    padding: 6px 9px;
+    line-height: 1;
+
+    text-align: center;
+
+    white-space: nowrap;
   }
 
+
+  /* MOBILE PHOTO */
+
   .hero-image {
-    min-height: 340px;
+    width: 100%;
+
+    height: auto;
+
+    min-height: 0;
+
+    display: block;
+
+    background: transparent;
+  }
+
+  .hero-image img {
+    width: 100%;
+
+    height: auto;
+
+    display: block;
+
+    object-fit: initial;
   }
 
   .image-card {
     width: 200px;
+
+    min-width: 0;
 
     padding: 17px;
   }
@@ -1532,7 +1707,7 @@ footer > a {
 
     border-right: 0;
 
-    border-bottom: 1px solid rgba(255,255,255,0.18);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.18);
   }
 
 
@@ -1554,7 +1729,7 @@ footer > a {
 
     border-right: 0;
 
-    border-bottom: 1px solid rgba(0,0,0,0.25);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.25);
   }
 
 
@@ -1594,9 +1769,6 @@ footer > a {
     line-height: 1.6;
   }
 
-
-  /* MOBILE = SWIPE ONLY */
-
   .gallery-arrow {
     display: none;
   }
@@ -1607,6 +1779,7 @@ footer > a {
     padding-right: 20px;
 
     overflow-x: auto;
+
     overflow-y: hidden;
 
     scroll-snap-type: x mandatory;
@@ -1645,9 +1818,6 @@ footer > a {
   .gallery-caption h3 {
     font-size: 18px;
   }
-
-
-  /* SWIPE HINT */
 
   .gallery-mobile-hint {
     display: flex;
@@ -1774,7 +1944,9 @@ footer > a {
   }
 
   .hero-image {
-    min-height: 310px;
+    height: auto;
+
+    min-height: 0;
   }
 
   .section {
@@ -1829,6 +2001,8 @@ footer > a {
   }
 
 
+  /* QUOTE */
+
   .quote-section {
     padding: 54px 18px;
   }
@@ -1836,6 +2010,9 @@ footer > a {
   .quote-intro h2 {
     font-size: 37px;
   }
+
+
+  /* FOOTER */
 
   footer {
     padding-left: 18px;
