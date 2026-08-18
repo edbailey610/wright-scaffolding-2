@@ -1,403 +1,688 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Wright Scaffolding | Professional Scaffolding Services</title>
+  <title>Wright Scaffolding | Scaffolding Services</title>
+  <meta
+    name="description"
+    content="Professional domestic and commercial scaffolding services. Safe, reliable access solutions for projects of all sizes."
+  >
 
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
-    body {
-      font-family: Arial, Helvetica, sans-serif;
-      background: #f5f5f5;
-      color: #222;
-      line-height: 1.6;
-    }
-
-    header {
-      background: #111827;
-      color: white;
-      padding: 18px 8%;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-    }
-
-    .logo {
-      font-size: 22px;
-      font-weight: bold;
-    }
-
-    .logo span {
-      color: #f59e0b;
-    }
-
-    nav a {
-      color: white;
-      text-decoration: none;
-      margin-left: 25px;
-      font-weight: bold;
-    }
-
-    nav a:hover {
-      color: #f59e0b;
-    }
-
-    .hero {
-      min-height: 85vh;
-      background:
-        linear-gradient(rgba(17,24,39,0.75), rgba(17,24,39,0.75)),
-        url("https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=1600&q=80");
-      background-size: cover;
-      background-position: center;
-      display: flex;
-      align-items: center;
-      padding: 0 8%;
-      color: white;
-    }
-
-    .hero-content {
-      max-width: 700px;
-    }
-
-    .hero h1 {
-      font-size: 55px;
-      line-height: 1.1;
-      margin-bottom: 20px;
-    }
-
-    .hero p {
-      font-size: 20px;
-      margin-bottom: 30px;
-      color: #e5e7eb;
-    }
-
-    .button {
-      display: inline-block;
-      background: #f59e0b;
-      color: #111827;
-      padding: 14px 25px;
-      border-radius: 6px;
-      text-decoration: none;
-      font-weight: bold;
-      margin-right: 10px;
-      transition: 0.2s;
-    }
-
-    .button:hover {
-      transform: translateY(-2px);
-    }
-
-    .button-secondary {
-      background: white;
-    }
-
-    section {
-      padding: 80px 8%;
-    }
-
-    .section-title {
-      text-align: center;
-      margin-bottom: 45px;
-    }
-
-    .section-title h2 {
-      font-size: 38px;
-      margin-bottom: 10px;
-    }
-
-    .section-title p {
-      color: #666;
-    }
-
-    .services {
-      background: white;
-    }
-
-    .service-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 25px;
-    }
-
-    .service-card {
-      background: #f9fafb;
-      padding: 30px;
-      border-radius: 10px;
-      border: 1px solid #e5e7eb;
-      transition: 0.2s;
-    }
-
-    .service-card:hover {
-      transform: translateY(-5px);
-    }
-
-    .service-card h3 {
-      margin-bottom: 10px;
-      font-size: 22px;
-    }
-
-    .about {
-      background: #111827;
-      color: white;
-      text-align: center;
-    }
-
-    .about-content {
-      max-width: 800px;
-      margin: auto;
-    }
-
-    .about h2 {
-      font-size: 38px;
-      margin-bottom: 20px;
-    }
-
-    .about p {
-      color: #d1d5db;
-      font-size: 18px;
-    }
-
-    .contact {
-      text-align: center;
-    }
-
-    .contact h2 {
-      font-size: 38px;
-      margin-bottom: 15px;
-    }
-
-    .contact p {
-      margin-bottom: 25px;
-      color: #555;
-    }
-
-    footer {
-      background: #0b1120;
-      color: #aaa;
-      text-align: center;
-      padding: 25px;
-    }
-
-    @media (max-width: 768px) {
-
-      header {
-        flex-direction: column;
-        gap: 12px;
-      }
-
-      nav {
-        display: flex;
-        gap: 15px;
-        flex-wrap: wrap;
-        justify-content: center;
-      }
-
-      nav a {
-        margin: 0;
-        font-size: 14px;
-      }
-
-      .hero {
-        min-height: 75vh;
-        text-align: center;
-        justify-content: center;
-        padding: 60px 6%;
-      }
-
-      .hero h1 {
-        font-size: 38px;
-      }
-
-      .hero p {
-        font-size: 17px;
-      }
-
-      .button {
-        display: block;
-        margin: 10px auto;
-        max-width: 250px;
-      }
-
-      .service-grid {
-        grid-template-columns: 1fr;
-      }
-
-      section {
-        padding: 60px 6%;
-      }
-
-      .section-title h2,
-      .about h2,
-      .contact h2 {
-        font-size: 30px;
-      }
-    }
-  </style>
+  <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-  <header>
+  <!-- HEADER -->
+  <header class="site-header">
 
-    <div class="logo">
+    <a href="#top" class="logo">
       WRIGHT <span>SCAFFOLDING</span>
-    </div>
+    </a>
 
-    <nav>
-      <a href="#home">Home</a>
+    <nav class="desktop-nav">
       <a href="#services">Services</a>
       <a href="#about">About</a>
-      <a href="#contact">Contact</a>
+      <a href="#work">Our Work</a>
+      <a href="#areas">Areas</a>
+      <a href="#quote" class="nav-quote">Get a quote ↗</a>
     </nav>
+
+    <button class="menu-button" id="menuButton">
+      Menu
+    </button>
 
   </header>
 
-  <main>
 
-    <section class="hero" id="home">
+  <!-- MOBILE MENU -->
+  <div class="mobile-menu" id="mobileMenu">
 
-      <div class="hero-content">
+    <a href="#services">Services</a>
+    <a href="#about">About</a>
+    <a href="#work">Our Work</a>
+    <a href="#areas">Areas</a>
+    <a href="#quote">Get a quote</a>
 
-        <h1>Safe. Reliable. Professional Scaffolding.</h1>
+  </div>
 
-        <p>
-          Professional scaffolding solutions for domestic, commercial
-          and construction projects. Wright Scaffolding provides safe,
-          dependable access solutions tailored to your project.
+
+  <main id="top">
+
+    <!-- HERO -->
+    <section class="hero">
+
+      <div class="hero-copy">
+
+        <p class="eyebrow">
+          PROFESSIONAL SCAFFOLDING SERVICES
         </p>
 
-        <a href="#contact" class="button">
-          Get a Free Quote
-        </a>
+        <h1>
+          Reliable scaffolding.<br>
+          Built properly.
+        </h1>
 
-        <a href="tel:01273123456" class="button button-secondary">
-          Call Us
-        </a>
+        <p class="hero-description">
+          Safe and dependable scaffolding solutions for homes,
+          businesses and construction projects — with straightforward
+          communication, professional workmanship and a modern approach.
+        </p>
+
+        <div class="hero-buttons">
+
+          <a href="#quote" class="button button-dark">
+            Get a free quote ↗
+          </a>
+
+          <a href="#services" class="text-link">
+            View services ↓
+          </a>
+
+        </div>
+
+        <div class="hero-tags">
+          <span>✓ Domestic</span>
+          <span>✓ Commercial</span>
+          <span>✓ Construction</span>
+        </div>
+
+      </div>
+
+
+      <div class="hero-image">
+
+        <img
+          src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=1400&q=85"
+          alt="Scaffolding on a construction project"
+        >
+
+        <div class="image-card">
+          <span>SERVICE AREA</span>
+          <strong>Your Local Area</strong>
+          <b>↗</b>
+        </div>
 
       </div>
 
     </section>
 
-    <section class="services" id="services">
 
-      <div class="section-title">
+    <!-- STRIP -->
+    <section class="service-strip">
 
-        <h2>Our Scaffolding Services</h2>
+      <span>Domestic Scaffolding</span>
+      <span>Commercial</span>
+      <span>Temporary Roofs</span>
+      <span>Access Towers</span>
+      <span>Chimney Access</span>
+
+    </section>
+
+
+    <!-- SERVICES -->
+    <section class="section services" id="services">
+
+      <div class="section-number">
+        01
+      </div>
+
+      <div class="section-heading">
+
+        <p class="eyebrow">
+          WHAT WE DO
+        </p>
+
+        <h2>
+          Scaffolding without<br>
+          the hassle.
+        </h2>
 
         <p>
-          Safe and reliable scaffolding solutions for projects of all sizes.
+          From small domestic projects through to larger commercial
+          installations, every job starts with understanding what you
+          need and providing the right access solution.
         </p>
 
       </div>
+
 
       <div class="service-grid">
 
-        <div class="service-card">
+        <article class="service-card featured">
+
+          <div class="service-number">
+            01 ↗
+          </div>
+
           <h3>Domestic Scaffolding</h3>
-          <p>
-            Safe and practical scaffolding for roofing, extensions,
-            renovations, painting and general property maintenance.
-          </p>
-        </div>
 
-        <div class="service-card">
+          <p>
+            Safe and practical scaffolding for homes,
+            renovations and property improvements.
+          </p>
+
+          <ul>
+            <li>Roofing access</li>
+            <li>Extensions</li>
+            <li>Painting & maintenance</li>
+          </ul>
+
+        </article>
+
+
+        <article class="service-card">
+
+          <div class="service-number">
+            02 ↗
+          </div>
+
           <h3>Commercial Scaffolding</h3>
-          <p>
-            Professional scaffolding solutions for offices, retail units,
-            developments and commercial properties.
-          </p>
-        </div>
 
-        <div class="service-card">
-          <h3>Construction Scaffolding</h3>
           <p>
-            Reliable access solutions for construction projects,
-            developments and building works.
+            Professional scaffolding systems for commercial
+            buildings and larger projects.
           </p>
-        </div>
 
-        <div class="service-card">
+          <ul>
+            <li>Commercial properties</li>
+            <li>Developments</li>
+            <li>Maintenance projects</li>
+          </ul>
+
+        </article>
+
+
+        <article class="service-card">
+
+          <div class="service-number">
+            03 ↗
+          </div>
+
           <h3>Temporary Roofs</h3>
-          <p>
-            Temporary roofing systems designed to protect buildings
-            and projects from the weather while work is carried out.
-          </p>
-        </div>
 
-        <div class="service-card">
+          <p>
+            Weather protection designed to keep your
+            project moving whatever the conditions.
+          </p>
+
+          <ul>
+            <li>Roof replacements</li>
+            <li>Renovations</li>
+            <li>Weather protection</li>
+          </ul>
+
+        </article>
+
+
+        <article class="service-card">
+
+          <div class="service-number">
+            04 ↗
+          </div>
+
           <h3>Access Towers</h3>
-          <p>
-            Safe access towers for maintenance, repairs and projects
-            requiring secure working at height.
-          </p>
-        </div>
 
-        <div class="service-card">
-          <h3>Bespoke Scaffolding</h3>
           <p>
-            Tailored scaffolding solutions for complex buildings,
-            restricted access and unusual project requirements.
+            Practical access solutions for maintenance,
+            repairs and smaller projects.
           </p>
-        </div>
+
+          <ul>
+            <li>Maintenance</li>
+            <li>Repairs</li>
+            <li>Restricted access</li>
+          </ul>
+
+        </article>
+
+
+        <article class="service-card">
+
+          <div class="service-number">
+            05 ↗
+          </div>
+
+          <h3>Chimney Scaffolding</h3>
+
+          <p>
+            Secure access around chimneys for repairs,
+            repointing and roofing work.
+          </p>
+
+          <ul>
+            <li>Chimney repairs</li>
+            <li>Repointing</li>
+            <li>Roof access</li>
+          </ul>
+
+        </article>
+
+
+        <article class="service-card contact-card">
+
+          <div class="service-number">
+            06
+          </div>
+
+          <p class="eyebrow">
+            SOMETHING ELSE?
+          </p>
+
+          <h3>Not sure what scaffolding you need?</h3>
+
+          <p>
+            Tell us about the project and we can discuss
+            the best solution.
+          </p>
+
+          <a href="#quote">
+            Tell us about your project ↗
+          </a>
+
+        </article>
 
       </div>
 
     </section>
 
-    <section class="about" id="about">
 
-      <div class="about-content">
+    <!-- APPROACH -->
+    <section class="section approach" id="about">
 
-        <h2>Scaffolding You Can Rely On</h2>
+      <div class="section-number">
+        02
+      </div>
+
+      <div class="section-heading">
+
+        <p class="eyebrow">
+          A BETTER APPROACH
+        </p>
+
+        <h2>
+          Good scaffolding starts<br>
+          with good communication.
+        </h2>
 
         <p>
-          Wright Scaffolding provides dependable scaffolding services
-          for homeowners, trades and businesses. We pride ourselves on
-          safety, reliability, professional workmanship and
-          straightforward service from quotation to dismantling.
+          No unnecessary complexity. No chasing for answers.
+          Just a straightforward approach to understanding
+          the job and getting the scaffolding installed safely.
         </p>
 
       </div>
 
+
+      <div class="values">
+
+        <div class="value">
+          <span>01</span>
+          <h3>Safe</h3>
+          <p>
+            Safety comes first throughout planning,
+            installation and dismantling.
+          </p>
+        </div>
+
+        <div class="value">
+          <span>02</span>
+          <h3>Reliable</h3>
+          <p>
+            Clear communication and dependable service
+            from first contact onwards.
+          </p>
+        </div>
+
+        <div class="value">
+          <span>03</span>
+          <h3>Professional</h3>
+          <p>
+            Well-planned scaffolding installed with care
+            and respect for the property.
+          </p>
+        </div>
+
+      </div>
+
     </section>
 
-    <section class="contact" id="contact">
 
-      <h2>Need a Scaffolding Quote?</h2>
+    <!-- PROCESS -->
+    <section class="section process">
 
-      <p>
-        Speak to our team today for a free, no-obligation quotation.
-      </p>
+      <div class="section-number">
+        03
+      </div>
 
-      <a href="tel:01273123456" class="button">
-        Call 01273 123456
-      </a>
+      <div class="section-heading">
 
-      <a href="mailto:info@wrightscaffolding.co.uk" class="button">
-        Email Us
-      </a>
+        <p class="eyebrow">
+          HOW IT WORKS
+        </p>
+
+        <h2>
+          From first message<br>
+          to scaffold complete.
+        </h2>
+
+      </div>
+
+
+      <div class="process-grid">
+
+        <div class="process-step">
+
+          <span>01</span>
+
+          <h3>Tell us what you need</h3>
+
+          <p>
+            Send us the details of your project,
+            including photos if useful.
+          </p>
+
+        </div>
+
+
+        <div class="process-step">
+
+          <span>02</span>
+
+          <h3>Discuss the project</h3>
+
+          <p>
+            We'll establish the access requirements
+            and the best solution.
+          </p>
+
+        </div>
+
+
+        <div class="process-step">
+
+          <span>03</span>
+
+          <h3>Arrange installation</h3>
+
+          <p>
+            Once everything is agreed, we'll arrange
+            a suitable installation date.
+          </p>
+
+        </div>
+
+
+        <div class="process-step">
+
+          <span>04</span>
+
+          <h3>Scaffold installed</h3>
+
+          <p>
+            Your scaffolding is installed safely and
+            ready for work to begin.
+          </p>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- WORK -->
+    <section class="section work" id="work">
+
+      <div class="section-number">
+        04
+      </div>
+
+      <div class="section-heading">
+
+        <p class="eyebrow">
+          OUR WORK
+        </p>
+
+        <h2>
+          Built around<br>
+          the project.
+        </h2>
+
+        <p>
+          Every property and project is different.
+          Our scaffolding solutions are planned around
+          the access required.
+        </p>
+
+      </div>
+
+
+      <div class="project-grid">
+
+        <article class="project">
+
+          <img
+            src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=1200&q=85"
+            alt="Construction scaffolding"
+          >
+
+          <p>DOMESTIC</p>
+
+          <h3>
+            Residential scaffolding
+          </h3>
+
+          <span>↗</span>
+
+        </article>
+
+
+        <article class="project">
+
+          <img
+            src="https://images.unsplash.com/photo-1485083269755-a7b559a4fe5e?auto=format&fit=crop&w=1200&q=85"
+            alt="Commercial construction project"
+          >
+
+          <p>COMMERCIAL</p>
+
+          <h3>
+            Commercial access solutions
+          </h3>
+
+          <span>↗</span>
+
+        </article>
+
+      </div>
+
+    </section>
+
+
+    <!-- AREAS -->
+    <section class="section areas" id="areas">
+
+      <div class="section-number">
+        05
+      </div>
+
+      <div class="areas-layout">
+
+        <div>
+
+          <p class="eyebrow">
+            WHERE WE WORK
+          </p>
+
+          <h2>
+            Local scaffolding.<br>
+            Reliable service.
+          </h2>
+
+          <p>
+            Providing professional scaffolding services
+            across the local area and surrounding towns.
+          </p>
+
+          <a href="#quote">
+            Ask about your area ↗
+          </a>
+
+        </div>
+
+
+        <div class="area-list">
+
+          <span>Domestic</span>
+          <span>Commercial</span>
+          <span>Residential</span>
+          <span>Construction</span>
+          <span>Local Projects</span>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- QUOTE -->
+    <section class="quote-section" id="quote">
+
+      <div class="quote-intro">
+
+        <span class="quote-number">
+          06
+        </span>
+
+        <p class="eyebrow">
+          START A CONVERSATION
+        </p>
+
+        <h2>
+          Got a scaffolding<br>
+          project in mind?
+        </h2>
+
+        <p>
+          Give us a few details and we can
+          take it from there.
+        </p>
+
+        <div class="contact-details">
+
+          <div>
+            <span>BASED IN</span>
+            <strong>Your Local Area</strong>
+          </div>
+
+          <div>
+            <span>COVERING</span>
+            <strong>Surrounding areas</strong>
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <form class="quote-form">
+
+        <label>
+          Your name
+          <input
+            type="text"
+            placeholder="John Smith"
+          >
+        </label>
+
+        <label>
+          Phone number
+          <input
+            type="tel"
+            placeholder="07..."
+          >
+        </label>
+
+        <label>
+          Email address
+          <input
+            type="email"
+            placeholder="you@example.com"
+          >
+        </label>
+
+        <label>
+          Job location
+          <input
+            type="text"
+            placeholder="e.g. Brighton"
+          >
+        </label>
+
+        <label>
+          What do you need help with?
+
+          <select>
+            <option>Select a service</option>
+            <option>Domestic Scaffolding</option>
+            <option>Commercial Scaffolding</option>
+            <option>Temporary Roof</option>
+            <option>Access Tower</option>
+            <option>Chimney Scaffolding</option>
+            <option>Other</option>
+          </select>
+
+        </label>
+
+        <label>
+          Tell us about the job
+
+          <textarea
+            rows="5"
+            placeholder="Tell us a little about your project..."
+          ></textarea>
+
+        </label>
+
+        <button type="submit">
+          Request a quote ↗
+        </button>
+
+      </form>
 
     </section>
 
   </main>
 
+
+  <!-- FOOTER -->
   <footer>
-    © 2026 Wright Scaffolding. All rights reserved.
+
+    <div class="footer-logo">
+      WRIGHT <span>SCAFFOLDING</span>
+    </div>
+
+    <p>
+      Professional scaffolding services.
+    </p>
+
+    <a href="#top">
+      ↑ Back to top
+    </a>
+
+    <div class="footer-bottom">
+      © 2026 Wright Scaffolding.
+    </div>
+
   </footer>
+
+
+  <script src="script.js"></script>
 
 </body>
 </html>
