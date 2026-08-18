@@ -13,6 +13,7 @@
   --light: #f3f1ec;
   --white: #ffffff;
   --orange: #ff5a1f;
+  --green: #22c55e;
   --grey: #666;
   --border: rgba(0, 0, 0, 0.14);
 }
@@ -659,7 +660,61 @@ footer > a {
 }
 
 
-/* CALL BUTTON - HIDDEN ON DESKTOP */
+/* ========================================
+   FLOATING INSTAGRAM BUTTON
+   DESKTOP
+   ======================================== */
+
+.instagram-button {
+  position: fixed;
+  left: 20px;
+  bottom: 20px;
+
+  width: 46px;
+  height: 46px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: var(--dark);
+  color: white;
+
+  border-radius: 50%;
+  border: 1px solid rgba(255,255,255,0.15);
+
+  z-index: 9999;
+
+  box-shadow:
+    0 8px 25px rgba(0,0,0,0.20),
+    0 2px 5px rgba(0,0,0,0.12);
+
+  transition:
+    transform 0.2s ease,
+    background 0.2s ease;
+}
+
+.instagram-button:hover {
+  transform: translateY(-2px);
+  background: var(--orange);
+  color: var(--dark);
+}
+
+.instagram-button svg {
+  width: 20px;
+  height: 20px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.8;
+}
+
+.instagram-button .instagram-dot {
+  fill: currentColor;
+  stroke: none;
+}
+
+
+/* CALL BUTTON HIDDEN ON DESKTOP */
 
 .mobile-call-button {
   display: none;
@@ -719,6 +774,33 @@ footer > a {
   }
 
 
+  /* MOBILE INSTAGRAM BUTTON */
+
+  .instagram-button {
+    left: auto;
+    right: 16px;
+    bottom: 74px;
+
+    width: 40px;
+    height: 40px;
+  }
+
+  .instagram-button svg {
+    width: 18px;
+    height: 18px;
+  }
+
+  .instagram-button:hover {
+    transform: none;
+    background: var(--dark);
+    color: white;
+  }
+
+  .instagram-button:active {
+    transform: scale(0.94);
+  }
+
+
   /* FLOATING CALL BUTTON */
 
   .mobile-call-button {
@@ -756,11 +838,11 @@ footer > a {
 
   .mobile-call-button::before {
     content: "";
+
     width: 7px;
     height: 7px;
 
-    /* GREEN ONLINE STATUS DOT */
-    background: #22c55e;
+    background: var(--green);
 
     border-radius: 50%;
     margin-right: 8px;
@@ -1105,5 +1187,4 @@ footer > a {
     padding-right: 18px;
     padding-bottom: 80px;
   }
-
 }
