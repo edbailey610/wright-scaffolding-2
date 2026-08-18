@@ -659,7 +659,7 @@ footer > a {
 }
 
 
-/* MOBILE CALL BUTTON - HIDDEN ON DESKTOP */
+/* CALL BUTTON - HIDDEN ON DESKTOP */
 
 .mobile-call-button {
   display: none;
@@ -685,7 +685,6 @@ footer > a {
   .process-grid {
     grid-template-columns: repeat(2, 1fr);
   }
-
 }
 
 
@@ -694,11 +693,6 @@ footer > a {
    ======================================== */
 
 @media (max-width: 768px) {
-
-  body {
-    padding-bottom: 76px;
-  }
-
 
   /* HEADER */
 
@@ -725,7 +719,7 @@ footer > a {
   }
 
 
-  /* FIXED CALL BUTTON */
+  /* FLOATING CALL BUTTON */
 
   .mobile-call-button {
     display: flex;
@@ -733,24 +727,45 @@ footer > a {
     justify-content: center;
 
     position: fixed;
-    left: 14px;
-    right: 14px;
-    bottom: 12px;
+    right: 16px;
+    bottom: 16px;
 
-    height: 54px;
+    width: 112px;
+    height: 46px;
 
-    background: var(--orange);
-    color: var(--dark);
+    background: var(--dark);
+    color: white;
 
-    border: 2px solid var(--dark);
+    border: 1px solid rgba(255,255,255,0.15);
+    border-radius: 50px;
 
-    font-size: 14px;
-    font-weight: 900;
-    letter-spacing: 1.2px;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 1px;
 
     z-index: 9999;
 
-    box-shadow: 0 5px 20px rgba(0,0,0,0.25);
+    box-shadow:
+      0 8px 25px rgba(0,0,0,0.22),
+      0 2px 5px rgba(0,0,0,0.15);
+
+    transition:
+      transform 0.2s ease,
+      background 0.2s ease;
+  }
+
+  .mobile-call-button::before {
+    content: "";
+    width: 7px;
+    height: 7px;
+    background: var(--orange);
+    border-radius: 50%;
+    margin-right: 8px;
+  }
+
+  .mobile-call-button:active {
+    transform: scale(0.96);
+    background: #000;
   }
 
 
@@ -839,7 +854,7 @@ footer > a {
   }
 
 
-  /* GENERAL MOBILE SECTIONS */
+  /* SECTIONS */
 
   .section {
     padding: 58px 20px;
@@ -1012,7 +1027,7 @@ footer > a {
   /* FOOTER */
 
   footer {
-    padding: 48px 20px 25px;
+    padding: 48px 20px 80px;
   }
 
   .footer-logo {
@@ -1029,7 +1044,6 @@ footer > a {
   .footer-bottom {
     margin-top: 38px;
   }
-
 }
 
 
@@ -1086,6 +1100,7 @@ footer > a {
   footer {
     padding-left: 18px;
     padding-right: 18px;
+    padding-bottom: 80px;
   }
 
 }
