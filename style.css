@@ -48,7 +48,9 @@ select {
 }
 
 
-/* HEADER */
+/* ========================================
+   HEADER
+   ======================================== */
 
 .site-header {
   height: 84px;
@@ -105,7 +107,9 @@ select {
 }
 
 
-/* MOBILE MENU */
+/* ========================================
+   MOBILE MENU
+   ======================================== */
 
 .mobile-menu {
   display: none;
@@ -131,7 +135,9 @@ select {
 }
 
 
-/* GENERAL */
+/* ========================================
+   GENERAL
+   ======================================== */
 
 .eyebrow {
   font-size: 11px;
@@ -170,7 +176,9 @@ select {
 }
 
 
-/* HERO */
+/* ========================================
+   HERO
+   ======================================== */
 
 .hero {
   min-height: 670px;
@@ -280,7 +288,9 @@ select {
 }
 
 
-/* SERVICE STRIP */
+/* ========================================
+   SERVICE STRIP
+   ======================================== */
 
 .service-strip {
   background: var(--dark);
@@ -298,7 +308,9 @@ select {
 }
 
 
-/* SERVICES */
+/* ========================================
+   SERVICES
+   ======================================== */
 
 .service-grid {
   display: grid;
@@ -374,7 +386,9 @@ select {
 }
 
 
-/* ABOUT */
+/* ========================================
+   ABOUT
+   ======================================== */
 
 .approach {
   background: var(--dark);
@@ -411,7 +425,9 @@ select {
 }
 
 
-/* PROCESS */
+/* ========================================
+   PROCESS
+   ======================================== */
 
 .process {
   background: var(--orange);
@@ -448,7 +464,9 @@ select {
 }
 
 
-/* OUR WORK */
+/* ========================================
+   OUR WORK
+   ======================================== */
 
 .project-grid {
   display: grid;
@@ -474,7 +492,9 @@ select {
 }
 
 
-/* AREAS */
+/* ========================================
+   AREAS
+   ======================================== */
 
 .areas {
   background: #dedbd4;
@@ -519,7 +539,9 @@ select {
 }
 
 
-/* QUOTE */
+/* ========================================
+   QUOTE
+   ======================================== */
 
 .quote-section {
   background: var(--dark);
@@ -619,7 +641,9 @@ select {
 }
 
 
-/* FOOTER */
+/* ========================================
+   FOOTER
+   ======================================== */
 
 footer {
   background: #090909;
@@ -661,15 +685,24 @@ footer > a {
 
 
 /* ========================================
-   FLOATING INSTAGRAM BUTTON
+   FLOATING SOCIAL BUTTONS
    DESKTOP
    ======================================== */
 
-.instagram-button {
+.social-buttons {
   position: fixed;
+
   left: 20px;
   bottom: 20px;
 
+  display: flex;
+  align-items: center;
+  gap: 9px;
+
+  z-index: 9999;
+}
+
+.social-button {
   width: 46px;
   height: 46px;
 
@@ -683,8 +716,6 @@ footer > a {
   border-radius: 50%;
   border: 1px solid rgba(255,255,255,0.15);
 
-  z-index: 9999;
-
   box-shadow:
     0 8px 25px rgba(0,0,0,0.20),
     0 2px 5px rgba(0,0,0,0.12);
@@ -694,34 +725,54 @@ footer > a {
     background 0.2s ease;
 }
 
-.instagram-button:hover {
+.social-button:hover {
   transform: translateY(-2px);
   background: var(--orange);
   color: var(--dark);
 }
 
-.instagram-button svg {
+
+/* INSTAGRAM ICON */
+
+.instagram-icon {
   width: 20px;
   height: 20px;
+
   fill: none;
   stroke: currentColor;
   stroke-width: 1.8;
 }
 
-.instagram-button .instagram-dot {
+.social-dot {
   fill: currentColor;
   stroke: none;
 }
 
 
-/* CALL BUTTON HIDDEN ON DESKTOP */
+/* FACEBOOK ICON */
+
+.facebook-icon {
+  width: 21px;
+  height: 21px;
+
+  fill: currentColor;
+  stroke: none;
+}
+
+
+/* ========================================
+   CALL BUTTON
+   HIDDEN ON DESKTOP
+   ======================================== */
 
 .mobile-call-button {
   display: none;
 }
 
 
-/* TABLET */
+/* ========================================
+   TABLET
+   ======================================== */
 
 @media (max-width: 1050px) and (min-width: 769px) {
 
@@ -740,6 +791,7 @@ footer > a {
   .process-grid {
     grid-template-columns: repeat(2, 1fr);
   }
+
 }
 
 
@@ -748,6 +800,7 @@ footer > a {
    ======================================== */
 
 @media (max-width: 768px) {
+
 
   /* HEADER */
 
@@ -774,34 +827,48 @@ footer > a {
   }
 
 
-  /* MOBILE INSTAGRAM BUTTON */
+  /* ========================================
+     MOBILE SOCIAL BUTTONS
+     ======================================== */
 
-  .instagram-button {
+  .social-buttons {
     left: auto;
+
     right: 16px;
     bottom: 74px;
 
+    gap: 8px;
+  }
+
+  .social-button {
     width: 40px;
     height: 40px;
   }
 
-  .instagram-button svg {
+  .instagram-icon {
     width: 18px;
     height: 18px;
   }
 
-  .instagram-button:hover {
+  .facebook-icon {
+    width: 19px;
+    height: 19px;
+  }
+
+  .social-button:hover {
     transform: none;
     background: var(--dark);
     color: white;
   }
 
-  .instagram-button:active {
+  .social-button:active {
     transform: scale(0.94);
   }
 
 
-  /* FLOATING CALL BUTTON */
+  /* ========================================
+     FLOATING CALL BUTTON
+     ======================================== */
 
   .mobile-call-button {
     display: flex;
@@ -809,6 +876,7 @@ footer > a {
     justify-content: center;
 
     position: fixed;
+
     right: 16px;
     bottom: 16px;
 
@@ -845,6 +913,7 @@ footer > a {
     background: var(--green);
 
     border-radius: 50%;
+
     margin-right: 8px;
   }
 
@@ -854,7 +923,9 @@ footer > a {
   }
 
 
-  /* HERO */
+  /* ========================================
+     HERO
+     ======================================== */
 
   .hero {
     display: flex;
@@ -922,15 +993,22 @@ footer > a {
   }
 
 
-  /* SERVICE STRIP */
+  /* ========================================
+     SERVICE STRIP
+     ======================================== */
 
   .service-strip {
     min-height: 54px;
+
     justify-content: flex-start;
+
     gap: 28px;
+
     padding: 15px 20px;
+
     overflow-x: auto;
     white-space: nowrap;
+
     scrollbar-width: none;
   }
 
@@ -939,7 +1017,9 @@ footer > a {
   }
 
 
-  /* SECTIONS */
+  /* ========================================
+     SECTIONS
+     ======================================== */
 
   .section {
     padding: 58px 20px;
@@ -966,7 +1046,9 @@ footer > a {
   }
 
 
-  /* SERVICES */
+  /* ========================================
+     SERVICES
+     ======================================== */
 
   .service-grid {
     grid-template-columns: 1fr;
@@ -999,7 +1081,9 @@ footer > a {
   }
 
 
-  /* ABOUT */
+  /* ========================================
+     ABOUT
+     ======================================== */
 
   .values {
     grid-template-columns: 1fr;
@@ -1008,8 +1092,11 @@ footer > a {
   .value,
   .value:not(:first-child) {
     padding: 27px 0;
+
     border-right: 0;
-    border-bottom: 1px solid rgba(255,255,255,0.18);
+
+    border-bottom:
+      1px solid rgba(255,255,255,0.18);
   }
 
   .value h3 {
@@ -1017,7 +1104,9 @@ footer > a {
   }
 
 
-  /* PROCESS */
+  /* ========================================
+     PROCESS
+     ======================================== */
 
   .process .section-heading {
     display: block;
@@ -1030,9 +1119,13 @@ footer > a {
   .process-step,
   .process-step:first-child {
     min-height: auto;
+
     padding: 25px 0;
+
     border-right: 0;
-    border-bottom: 1px solid rgba(0,0,0,0.25);
+
+    border-bottom:
+      1px solid rgba(0,0,0,0.25);
   }
 
   .process-step h3 {
@@ -1040,7 +1133,9 @@ footer > a {
   }
 
 
-  /* WORK */
+  /* ========================================
+     OUR WORK
+     ======================================== */
 
   .project-grid {
     grid-template-columns: 1fr;
@@ -1056,7 +1151,9 @@ footer > a {
   }
 
 
-  /* AREAS */
+  /* ========================================
+     AREAS
+     ======================================== */
 
   .areas-layout {
     grid-template-columns: 1fr;
@@ -1075,7 +1172,9 @@ footer > a {
   }
 
 
-  /* QUOTE */
+  /* ========================================
+     QUOTE
+     ======================================== */
 
   .quote-section {
     display: block;
@@ -1109,7 +1208,9 @@ footer > a {
   }
 
 
-  /* FOOTER */
+  /* ========================================
+     FOOTER
+     ======================================== */
 
   footer {
     padding: 48px 20px 80px;
@@ -1122,17 +1223,22 @@ footer > a {
 
   footer > a {
     position: static;
+
     display: inline-block;
+
     margin-top: 25px;
   }
 
   .footer-bottom {
     margin-top: 38px;
   }
+
 }
 
 
-/* SMALL MOBILE */
+/* ========================================
+   SMALL MOBILE
+   ======================================== */
 
 @media (max-width: 430px) {
 
@@ -1187,4 +1293,5 @@ footer > a {
     padding-right: 18px;
     padding-bottom: 80px;
   }
+
 }
