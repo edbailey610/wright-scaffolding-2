@@ -48,9 +48,7 @@ select {
 }
 
 
-/* ========================================
-   HEADER
-   ======================================== */
+/* HEADER */
 
 .site-header {
   height: 84px;
@@ -107,9 +105,7 @@ select {
 }
 
 
-/* ========================================
-   MOBILE MENU
-   ======================================== */
+/* MOBILE MENU */
 
 .mobile-menu {
   display: none;
@@ -135,9 +131,7 @@ select {
 }
 
 
-/* ========================================
-   GENERAL
-   ======================================== */
+/* GENERAL */
 
 .eyebrow {
   font-size: 11px;
@@ -176,9 +170,7 @@ select {
 }
 
 
-/* ========================================
-   HERO
-   ======================================== */
+/* HERO */
 
 .hero {
   min-height: 670px;
@@ -288,9 +280,7 @@ select {
 }
 
 
-/* ========================================
-   SERVICE STRIP
-   ======================================== */
+/* SERVICE STRIP */
 
 .service-strip {
   background: var(--dark);
@@ -308,9 +298,7 @@ select {
 }
 
 
-/* ========================================
-   SERVICES
-   ======================================== */
+/* SERVICES */
 
 .service-grid {
   display: grid;
@@ -386,9 +374,7 @@ select {
 }
 
 
-/* ========================================
-   ABOUT
-   ======================================== */
+/* ABOUT */
 
 .approach {
   background: var(--dark);
@@ -425,9 +411,7 @@ select {
 }
 
 
-/* ========================================
-   PROCESS
-   ======================================== */
+/* PROCESS */
 
 .process {
   background: var(--orange);
@@ -464,9 +448,7 @@ select {
 }
 
 
-/* ========================================
-   OUR WORK
-   ======================================== */
+/* OUR WORK */
 
 .project-grid {
   display: grid;
@@ -492,9 +474,7 @@ select {
 }
 
 
-/* ========================================
-   AREAS
-   ======================================== */
+/* AREAS */
 
 .areas {
   background: #dedbd4;
@@ -539,9 +519,7 @@ select {
 }
 
 
-/* ========================================
-   QUOTE
-   ======================================== */
+/* QUOTE */
 
 .quote-section {
   background: var(--dark);
@@ -641,9 +619,7 @@ select {
 }
 
 
-/* ========================================
-   FOOTER
-   ======================================== */
+/* FOOTER */
 
 footer {
   background: #090909;
@@ -685,7 +661,7 @@ footer > a {
 
 
 /* ========================================
-   FLOATING SOCIAL BUTTONS - DESKTOP
+   SOCIAL BUTTONS - DESKTOP
    ======================================== */
 
 .social-buttons {
@@ -729,13 +705,9 @@ footer > a {
   color: var(--dark);
 }
 
-
-/* INSTAGRAM ICON */
-
 .instagram-icon {
   width: 20px;
   height: 20px;
-
   fill: none;
   stroke: currentColor;
   stroke-width: 1.8;
@@ -746,13 +718,9 @@ footer > a {
   stroke: none;
 }
 
-
-/* FACEBOOK ICON */
-
 .facebook-icon {
   width: 21px;
   height: 21px;
-
   fill: currentColor;
   stroke: none;
 }
@@ -765,9 +733,7 @@ footer > a {
 }
 
 
-/* ========================================
-   TABLET
-   ======================================== */
+/* TABLET */
 
 @media (max-width: 1050px) and (min-width: 769px) {
 
@@ -823,7 +789,7 @@ footer > a {
 
   /* ========================================
      MOBILE SOCIAL BUTTONS
-     Exactly same overall width as CALL NOW
+     STACKED VERTICALLY ON RIGHT
      ======================================== */
 
   .social-buttons {
@@ -831,28 +797,28 @@ footer > a {
     right: 16px;
     bottom: 74px;
 
-    width: 112px;
+    width: auto;
 
     display: flex;
-    align-items: center;
-    justify-content: space-between;
+    flex-direction: column;
+    align-items: flex-end;
 
-    gap: 0;
+    gap: 8px;
   }
 
   .social-button {
-    width: 46px;
-    height: 46px;
+    width: 40px;
+    height: 40px;
   }
 
   .instagram-icon {
-    width: 19px;
-    height: 19px;
+    width: 18px;
+    height: 18px;
   }
 
   .facebook-icon {
-    width: 20px;
-    height: 20px;
+    width: 19px;
+    height: 19px;
   }
 
   .social-button:hover {
@@ -866,9 +832,7 @@ footer > a {
   }
 
 
-  /* ========================================
-     FLOATING CALL BUTTON
-     ======================================== */
+  /* FLOATING CALL BUTTON */
 
   .mobile-call-button {
     display: flex;
@@ -897,10 +861,6 @@ footer > a {
     box-shadow:
       0 8px 25px rgba(0,0,0,0.22),
       0 2px 5px rgba(0,0,0,0.15);
-
-    transition:
-      transform 0.2s ease,
-      background 0.2s ease;
   }
 
   .mobile-call-button::before {
@@ -911,6 +871,7 @@ footer > a {
 
     background: var(--green);
     border-radius: 50%;
+
     margin-right: 8px;
   }
 
@@ -1199,9 +1160,7 @@ footer > a {
 }
 
 
-/* ========================================
-   SMALL MOBILE
-   ======================================== */
+/* SMALL MOBILE */
 
 @media (max-width: 430px) {
 
