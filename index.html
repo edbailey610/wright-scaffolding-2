@@ -412,53 +412,180 @@
     <!-- OUR WORK -->
     <section class="section work" id="work">
 
-      <div class="section-heading">
+      <div class="work-heading">
 
         <p class="eyebrow">
           OUR WORK
         </p>
 
-        <h2>
-          Built around<br>
-          the project.
-        </h2>
+        <div class="work-title-row">
 
-        <p>
-          Every property and project is different.
-          Our scaffolding solutions are planned around
-          the access required.
-        </p>
+          <h2>
+            Recent projects.
+          </h2>
+
+          <p>
+            A selection of scaffolding projects across
+            Abergavenny and surrounding areas.
+          </p>
+
+        </div>
 
       </div>
 
 
-      <div class="project-grid">
+      <div class="gallery-wrapper">
 
-        <article class="project">
-
-          <img
-            src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=1200&q=85"
-            alt="Residential scaffolding project"
-          >
-
-          <p>DOMESTIC</p>
-          <h3>Residential scaffolding</h3>
-
-        </article>
+        <!-- DESKTOP LEFT ARROW -->
+        <button
+          class="gallery-arrow gallery-arrow-left"
+          id="galleryPrevious"
+          aria-label="View previous projects"
+        >
+          &#8592;
+        </button>
 
 
-        <article class="project">
+        <div class="gallery-track" id="galleryTrack">
 
-          <img
-            src="https://images.unsplash.com/photo-1485083269755-a7b559a4fe5e?auto=format&fit=crop&w=1200&q=85"
-            alt="Commercial scaffolding project"
-          >
 
-          <p>COMMERCIAL</p>
-          <h3>Commercial access solutions</h3>
+          <!-- PROJECT 1 -->
+          <article class="gallery-item">
 
-        </article>
+            <div class="gallery-image">
 
+              <img
+                src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=1200&q=85"
+                alt="Residential scaffolding project"
+              >
+
+            </div>
+
+            <div class="gallery-caption">
+              <span>01 / DOMESTIC</span>
+              <h3>Residential scaffolding</h3>
+            </div>
+
+          </article>
+
+
+          <!-- PROJECT 2 -->
+          <article class="gallery-item">
+
+            <div class="gallery-image">
+
+              <img
+                src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=1200&q=85"
+                alt="Construction access project"
+              >
+
+            </div>
+
+            <div class="gallery-caption">
+              <span>02 / ACCESS</span>
+              <h3>Construction access</h3>
+            </div>
+
+          </article>
+
+
+          <!-- PROJECT 3 -->
+          <article class="gallery-item">
+
+            <div class="gallery-image">
+
+              <img
+                src="https://images.unsplash.com/photo-1541976590-713941681591?auto=format&fit=crop&w=1200&q=85"
+                alt="Commercial project"
+              >
+
+            </div>
+
+            <div class="gallery-caption">
+              <span>03 / COMMERCIAL</span>
+              <h3>Commercial project</h3>
+            </div>
+
+          </article>
+
+
+          <!-- PROJECT 4 -->
+          <article class="gallery-item">
+
+            <div class="gallery-image">
+
+              <img
+                src="https://images.unsplash.com/photo-1487958449943-2429e8be8625?auto=format&fit=crop&w=1200&q=85"
+                alt="Property renovation project"
+              >
+
+            </div>
+
+            <div class="gallery-caption">
+              <span>04 / RENOVATION</span>
+              <h3>Property renovation</h3>
+            </div>
+
+          </article>
+
+
+          <!-- PROJECT 5 -->
+          <article class="gallery-item">
+
+            <div class="gallery-image">
+
+              <img
+                src="https://images.unsplash.com/photo-1511818966892-d7d671e672a2?auto=format&fit=crop&w=1200&q=85"
+                alt="Building maintenance project"
+              >
+
+            </div>
+
+            <div class="gallery-caption">
+              <span>05 / MAINTENANCE</span>
+              <h3>Building maintenance</h3>
+            </div>
+
+          </article>
+
+
+          <!-- PROJECT 6 -->
+          <article class="gallery-item">
+
+            <div class="gallery-image">
+
+              <img
+                src="https://images.unsplash.com/photo-1485083269755-a7b559a4fe5e?auto=format&fit=crop&w=1200&q=85"
+                alt="Commercial access project"
+              >
+
+            </div>
+
+            <div class="gallery-caption">
+              <span>06 / COMMERCIAL</span>
+              <h3>Commercial access</h3>
+            </div>
+
+          </article>
+
+        </div>
+
+
+        <!-- DESKTOP RIGHT ARROW -->
+        <button
+          class="gallery-arrow gallery-arrow-right"
+          id="galleryNext"
+          aria-label="View more projects"
+        >
+          &#8594;
+        </button>
+
+      </div>
+
+
+      <div class="gallery-mobile-hint">
+        <span>SWIPE TO EXPLORE</span>
+        <span>&#8594;</span>
       </div>
 
     </section>
@@ -560,6 +687,7 @@
 
         <label>
           Your name
+
           <input
             type="text"
             name="name"
@@ -571,6 +699,7 @@
 
         <label>
           Phone number
+
           <input
             type="tel"
             name="phone"
@@ -582,6 +711,7 @@
 
         <label>
           Email address
+
           <input
             type="email"
             name="email"
@@ -593,6 +723,7 @@
 
         <label>
           Job location
+
           <input
             type="text"
             name="location"
@@ -602,7 +733,6 @@
 
 
         <label>
-
           What do you need help with?
 
           <select name="service">
@@ -614,12 +744,10 @@
             <option>Chimney Scaffolding</option>
             <option>Other</option>
           </select>
-
         </label>
 
 
         <label>
-
           Tell us about the job
 
           <textarea
@@ -627,7 +755,6 @@
             rows="5"
             placeholder="Tell us a little about your project..."
           ></textarea>
-
         </label>
 
 
