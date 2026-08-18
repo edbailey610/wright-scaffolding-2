@@ -660,33 +660,26 @@ footer > a {
 }
 
 
-/* ========================================
-   SOCIAL BUTTONS - DESKTOP
-   ======================================== */
+/* SOCIAL BUTTONS - DESKTOP */
 
 .social-buttons {
   position: fixed;
   left: 20px;
   bottom: 20px;
-
   display: flex;
   align-items: center;
   gap: 9px;
-
   z-index: 9999;
 }
 
 .social-button {
   width: 46px;
   height: 46px;
-
   display: flex;
   align-items: center;
   justify-content: center;
-
   background: var(--dark);
   color: white;
-
   border-radius: 50%;
   border: 1px solid rgba(255,255,255,0.15);
 
@@ -787,10 +780,7 @@ footer > a {
   }
 
 
-  /* ========================================
-     MOBILE SOCIAL BUTTONS
-     STACKED VERTICALLY ON RIGHT
-     ======================================== */
+  /* SOCIAL BUTTONS STACKED ON RIGHT */
 
   .social-buttons {
     left: auto;
@@ -840,6 +830,7 @@ footer > a {
     justify-content: center;
 
     position: fixed;
+
     right: 16px;
     bottom: 16px;
 

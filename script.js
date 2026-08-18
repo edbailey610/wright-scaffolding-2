@@ -2,21 +2,36 @@ const menuButton = document.getElementById("menuButton");
 const mobileMenu = document.getElementById("mobileMenu");
 
 menuButton.addEventListener("click", () => {
+
   mobileMenu.classList.toggle("active");
 
-  if (mobileMenu.classList.contains("active")) {
+  const menuIsOpen = mobileMenu.classList.contains("active");
+
+  menuButton.setAttribute("aria-expanded", menuIsOpen);
+
+  if (menuIsOpen) {
     menuButton.textContent = "Close";
   } else {
     menuButton.textContent = "Menu";
   }
+
 });
 
-// Close the mobile menu when a link is clicked
-const mobileLinks = mobileMenu.querySelectorAll("a");
 
-mobileLinks.forEach(link => {
+/* CLOSE MOBILE MENU AFTER CLICKING A LINK */
+
+const mobileMenuLinks = mobileMenu.querySelectorAll("a");
+
+mobileMenuLinks.forEach((link) => {
+
   link.addEventListener("click", () => {
+
     mobileMenu.classList.remove("active");
+
+    menuButton.setAttribute("aria-expanded", "false");
+
     menuButton.textContent = "Menu";
+
   });
+
 });
