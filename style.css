@@ -48,10 +48,12 @@ select {
 }
 
 
-/* HEADER */
+/* ========================================
+   HEADER
+   ======================================== */
 
 .site-header {
-  height: 84px;
+  min-height: 84px;
   padding: 0 6%;
   display: flex;
   align-items: center;
@@ -62,14 +64,36 @@ select {
   z-index: 1000;
 }
 
+
+/* LOGO + LOCATION */
+
+.logo-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 2px;
+}
+
 .logo {
   font-size: 20px;
   font-weight: 900;
+  line-height: 1.1;
 }
 
 .logo span {
   color: var(--orange);
 }
+
+.logo-location {
+  font-size: 8px;
+  font-weight: 700;
+  letter-spacing: 1.25px;
+  color: #777;
+  text-transform: uppercase;
+  line-height: 1.2;
+}
+
 
 .desktop-nav {
   display: flex;
@@ -105,7 +129,9 @@ select {
 }
 
 
-/* MOBILE MENU */
+/* ========================================
+   MOBILE MENU
+   ======================================== */
 
 .mobile-menu {
   display: none;
@@ -131,7 +157,9 @@ select {
 }
 
 
-/* GENERAL */
+/* ========================================
+   GENERAL
+   ======================================== */
 
 .eyebrow {
   font-size: 11px;
@@ -170,7 +198,9 @@ select {
 }
 
 
-/* HERO */
+/* ========================================
+   HERO
+   ======================================== */
 
 .hero {
   min-height: 670px;
@@ -280,7 +310,9 @@ select {
 }
 
 
-/* SERVICE STRIP */
+/* ========================================
+   SERVICE STRIP
+   ======================================== */
 
 .service-strip {
   background: var(--dark);
@@ -298,7 +330,9 @@ select {
 }
 
 
-/* SERVICES */
+/* ========================================
+   SERVICES
+   ======================================== */
 
 .service-grid {
   display: grid;
@@ -374,7 +408,9 @@ select {
 }
 
 
-/* ABOUT */
+/* ========================================
+   ABOUT
+   ======================================== */
 
 .approach {
   background: var(--dark);
@@ -411,7 +447,9 @@ select {
 }
 
 
-/* PROCESS */
+/* ========================================
+   PROCESS
+   ======================================== */
 
 .process {
   background: var(--orange);
@@ -448,7 +486,9 @@ select {
 }
 
 
-/* OUR WORK */
+/* ========================================
+   OUR WORK
+   ======================================== */
 
 .project-grid {
   display: grid;
@@ -474,7 +514,9 @@ select {
 }
 
 
-/* AREAS */
+/* ========================================
+   AREAS
+   ======================================== */
 
 .areas {
   background: #dedbd4;
@@ -519,7 +561,9 @@ select {
 }
 
 
-/* QUOTE */
+/* ========================================
+   QUOTE
+   ======================================== */
 
 .quote-section {
   background: var(--dark);
@@ -619,7 +663,9 @@ select {
 }
 
 
-/* FOOTER */
+/* ========================================
+   FOOTER
+   ======================================== */
 
 footer {
   background: #090909;
@@ -660,7 +706,9 @@ footer > a {
 }
 
 
-/* SOCIAL BUTTONS - DESKTOP */
+/* ========================================
+   SOCIAL BUTTONS - DESKTOP
+   ======================================== */
 
 .social-buttons {
   position: fixed;
@@ -686,10 +734,6 @@ footer > a {
   box-shadow:
     0 8px 25px rgba(0,0,0,0.20),
     0 2px 5px rgba(0,0,0,0.12);
-
-  transition:
-    transform 0.2s ease,
-    background 0.2s ease;
 }
 
 .social-button:hover {
@@ -726,7 +770,9 @@ footer > a {
 }
 
 
-/* TABLET */
+/* ========================================
+   TABLET
+   ======================================== */
 
 @media (max-width: 1050px) and (min-width: 769px) {
 
@@ -758,12 +804,18 @@ footer > a {
   /* HEADER */
 
   .site-header {
-    height: 64px;
-    padding: 0 20px;
+    min-height: 70px;
+    padding: 0 18px;
   }
 
   .logo {
-    font-size: 16px;
+    font-size: 15px;
+  }
+
+  .logo-location {
+    font-size: 6.5px;
+    letter-spacing: 0.9px;
+    margin-top: 2px;
   }
 
   .desktop-nav {
@@ -775,24 +827,19 @@ footer > a {
   }
 
   .mobile-menu {
-    padding-left: 20px;
-    padding-right: 20px;
+    padding-left: 18px;
+    padding-right: 18px;
   }
 
 
-  /* SOCIAL BUTTONS STACKED ON RIGHT */
+  /* SOCIAL BUTTONS */
 
   .social-buttons {
     left: auto;
     right: 16px;
     bottom: 74px;
-
-    width: auto;
-
-    display: flex;
     flex-direction: column;
     align-items: flex-end;
-
     gap: 8px;
   }
 
@@ -817,12 +864,8 @@ footer > a {
     color: white;
   }
 
-  .social-button:active {
-    transform: scale(0.94);
-  }
 
-
-  /* FLOATING CALL BUTTON */
+  /* CALL NOW */
 
   .mobile-call-button {
     display: flex;
@@ -830,7 +873,6 @@ footer > a {
     justify-content: center;
 
     position: fixed;
-
     right: 16px;
     bottom: 16px;
 
@@ -856,19 +898,11 @@ footer > a {
 
   .mobile-call-button::before {
     content: "";
-
     width: 7px;
     height: 7px;
-
     background: var(--green);
     border-radius: 50%;
-
     margin-right: 8px;
-  }
-
-  .mobile-call-button:active {
-    transform: scale(0.96);
-    background: #000;
   }
 
 
@@ -1151,15 +1185,11 @@ footer > a {
 }
 
 
-/* SMALL MOBILE */
+/* ========================================
+   SMALL MOBILE
+   ======================================== */
 
 @media (max-width: 430px) {
-
-  .site-header,
-  .mobile-menu {
-    padding-left: 18px;
-    padding-right: 18px;
-  }
 
   .hero-copy {
     padding: 48px 18px 42px;
