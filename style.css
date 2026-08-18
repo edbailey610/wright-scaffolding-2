@@ -659,6 +659,13 @@ footer > a {
 }
 
 
+/* MOBILE CALL BUTTON - HIDDEN ON DESKTOP */
+
+.mobile-call-button {
+  display: none;
+}
+
+
 /* TABLET */
 
 @media (max-width: 1050px) and (min-width: 769px) {
@@ -688,6 +695,11 @@ footer > a {
 
 @media (max-width: 768px) {
 
+  body {
+    padding-bottom: 76px;
+  }
+
+
   /* HEADER */
 
   .site-header {
@@ -710,6 +722,35 @@ footer > a {
   .mobile-menu {
     padding-left: 20px;
     padding-right: 20px;
+  }
+
+
+  /* FIXED CALL BUTTON */
+
+  .mobile-call-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    position: fixed;
+    left: 14px;
+    right: 14px;
+    bottom: 12px;
+
+    height: 54px;
+
+    background: var(--orange);
+    color: var(--dark);
+
+    border: 2px solid var(--dark);
+
+    font-size: 14px;
+    font-weight: 900;
+    letter-spacing: 1.2px;
+
+    z-index: 9999;
+
+    box-shadow: 0 5px 20px rgba(0,0,0,0.25);
   }
 
 
