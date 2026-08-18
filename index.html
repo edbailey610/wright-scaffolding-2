@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Brighton Roofing Co. | Professional Roofing Services</title>
+  <title>Wright Roofing Co. | Professional Roofing Services</title>
 
   <style>
     * {
@@ -62,6 +62,7 @@
 
     .hero {
       min-height: 85vh;
+
       background:
         linear-gradient(rgba(17,24,39,0.75), rgba(17,24,39,0.75)),
         url("https://images.unsplash.com/photo-1632759145351-1d592919f522?auto=format&fit=crop&w=1600&q=80");
@@ -91,6 +92,8 @@
       color: #e5e7eb;
     }
 
+    /* BUTTONS */
+
     .button {
       display: inline-block;
       background: #f59e0b;
@@ -100,6 +103,11 @@
       text-decoration: none;
       font-weight: bold;
       margin-right: 10px;
+      transition: 0.2s;
+    }
+
+    .button:hover {
+      transform: translateY(-2px);
     }
 
     .button-secondary {
@@ -143,6 +151,11 @@
       padding: 30px;
       border-radius: 10px;
       border: 1px solid #e5e7eb;
+      transition: 0.2s;
+    }
+
+    .service-card:hover {
+      transform: translateY(-5px);
     }
 
     .service-card h3 {
@@ -210,6 +223,8 @@
       nav {
         display: flex;
         gap: 15px;
+        flex-wrap: wrap;
+        justify-content: center;
       }
 
       nav a {
@@ -221,6 +236,7 @@
         min-height: 75vh;
         text-align: center;
         justify-content: center;
+        padding: 60px 6%;
       }
 
       .hero h1 {
@@ -244,16 +260,25 @@
       section {
         padding: 60px 6%;
       }
+
+      .section-title h2,
+      .about h2,
+      .contact h2 {
+        font-size: 30px;
+      }
     }
+
   </style>
 </head>
 
 <body>
 
+  <!-- HEADER -->
+
   <header>
 
     <div class="logo">
-      BRIGHTON <span>ROOFING</span>
+      WRIGHT <span>ROOFING</span>
     </div>
 
     <nav>
@@ -277,8 +302,9 @@
         <h1>Reliable Roofing Built to Last.</h1>
 
         <p>
-          Professional roofing services across Brighton and the surrounding
-          areas. From emergency repairs to complete new roofs.
+          Professional roofing services for homes and businesses.
+          From emergency repairs to complete new roofs, Wright Roofing
+          provides reliable workmanship you can depend on.
         </p>
 
         <a href="#contact" class="button">
@@ -303,7 +329,7 @@
         <h2>Our Roofing Services</h2>
 
         <p>
-          Professional solutions for residential and commercial properties.
+          Professional roofing solutions for residential and commercial properties.
         </p>
 
       </div>
@@ -350,7 +376,8 @@
         <div class="service-card">
           <h3>Guttering</h3>
           <p>
-            Installation and repair of guttering, fascias and soffits.
+            Installation and repair of guttering, fascias and soffits to
+            protect your property from water damage.
           </p>
         </div>
 
@@ -373,13 +400,12 @@
 
       <div class="about-content">
 
-        <h2>Local Roofers You Can Rely On</h2>
+        <h2>Roofers You Can Rely On</h2>
 
         <p>
-          Brighton Roofing Co. provides dependable roofing services for
-          homeowners and businesses across the local area. We pride ourselves
-          on quality workmanship, straightforward advice and competitive
-          pricing.
+          Wright Roofing Co. provides dependable roofing services for
+          homeowners and businesses. We pride ourselves on quality
+          workmanship, straightforward advice and competitive pricing.
         </p>
 
       </div>
@@ -401,7 +427,7 @@
         Call 01273 123456
       </a>
 
-      <a href="mailto:info@brightonroofing.co.uk" class="button">
+      <a href="mailto:info@wrightroofing.co.uk" class="button">
         Email Us
       </a>
 
@@ -410,8 +436,10 @@
   </main>
 
 
+  <!-- FOOTER -->
+
   <footer>
-    © 2026 Brighton Roofing Co. All rights reserved.
+    © 2026 Wright Roofing Co. All rights reserved.
   </footer>
 
 </body>
